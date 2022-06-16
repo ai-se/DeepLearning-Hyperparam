@@ -1,0 +1,1 @@
+{"filters_1": 128, "filters_2": 128, "kernel_size_1": 7, "kernel_size_2": 7, "neurons": 128, "embedding_dim": 128, "activation_1": "relu", "activation_2": "relu", "activation_3": "relu", "dropout_ratio_1": 0.5, "dropout_ratio_2": 0.5, "pool_type": "globalmax", "loss_function": "binary_crossentropy", "optimizer": "Adam", "batch_size": 32, "epochs": 3, "learning_rate": 0.001}

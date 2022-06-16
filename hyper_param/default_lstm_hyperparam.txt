@@ -1,0 +1,1 @@
+{"units_1": 64, "units_2": 64, "embedding_dim": 128, "dropout_ratio": 0.5, "activation_1": "tanh", "activation_2": "tanh", "loss_function": "binary_crossentropy", "optimizer": "Adam", "learning_rate": 0.001, "epochs": 2, "batch_size": 32}
