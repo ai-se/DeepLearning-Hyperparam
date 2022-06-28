@@ -99,7 +99,7 @@ class NaiveCNNHyper(DLModels):
         return self.model
     
     def train(self, train_input, train_label):
-        self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
+        return self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
     
     def evaluate(self, test_input, test_label):
         result = self.model.evaluate(test_input, test_label, return_dict=True, batch_size=self.batch_size)
@@ -166,7 +166,7 @@ class ResNetHyper(DLModels):
         return self.model
     
     def train(self, train_input, train_label):
-        self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
+        return self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
     
     def evaluate(self, test_input, test_label):
         result = self.model.evaluate(test_input, test_label, return_dict=True, batch_size=self.batch_size)
@@ -278,7 +278,7 @@ class CNNTextHyper(DLModels):
         return self.model
     
     def train(self, train_input, train_label):
-        self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
+        return self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
     
     def evaluate(self, test_input, test_label):
         result = self.model.evaluate(test_input, test_label, return_dict=True, batch_size=self.batch_size)
@@ -320,7 +320,7 @@ class LSTMTextHyper(DLModels):
         return self.model
     
     def train(self, train_input, train_label):
-        self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
+        return self.model.fit(train_input, train_label, epochs=self.epochs, batch_size=self.batch_size, validation_split=0.1)
     
     def evaluate(self, test_input, test_label):
         result = self.model.evaluate(test_input, test_label, return_dict=True, batch_size=self.batch_size)

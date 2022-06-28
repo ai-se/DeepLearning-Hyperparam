@@ -1,4 +1,4 @@
-import keras
+from tensorflow import keras 
 from tensorflow.keras.utils import to_categorical
 
 def load_mnist_dataset():
