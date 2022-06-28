@@ -16,6 +16,8 @@
 │   ├── mnistcnn_hyperparam.txt
 │   └── resnet_hyperparam.txt
 ├── model_arch.py # Definition of Keras deep learning models
+├── keras_tuner_hyper.py
+├── tuner_example.ipynb
 └── README.md
 ```
 
@@ -40,3 +42,14 @@ Notice: for each model we have a default hyperparam, which should provide accept
 We have four models: `class NaiveCNNHyper`, `class ResNetHyper`, `class LSTMTextHyper`, `class CNNTextHyper`. They have the same interfaces for initialization (`function build_model`), training and evaluation.
 
 Please refer to `demo.ipynb` for more information.
+
+
+## Keras-tuner
+
+Keras tuner seems to be jupyter-notebook friedly because some of the search summaries are just printed out instead of returning a data structure. 
+
+Please refer to `tuner_example.ipynb` for details. The search classes are implemented under `keras_tuner_hyper.py`.
+
+Generally speaking, one can first init the base model `keras_tuner_hyper.MyHyperModel`, then do the search `tuner.search`, and get the best topK hyper-parameters useing `all_hyper_parameter_list = tuner.get_best_hyperparameters(num_trials=TRIALS)`.
+
+We do not record the trained model when doing the search, becauase Keras-tuner suggests to re-train the model from the given hyperparameters. In default the model saving in Keras-tuner is not implemented. (Refer to [base_tuner](https://github.com/keras-team/keras-tuner/blob/f1a475eb51ce4692a249906ec1a54e368fc7ae2b/keras_tuner/engine/base_tuner.py#L207))

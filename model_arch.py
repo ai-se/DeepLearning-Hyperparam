@@ -114,8 +114,8 @@ class ResNetHyper(DLModels):
         self.kernel_size = params['kernel_size']
         self.filters_1 = params['filters_1']
         self.filters_2 = params['filters_2']
-        self.filter_3 = params['filter_3']
-        self.filter_4 = params['filter_4']
+        self.filters_3 = params['filters_3']
+        self.filters_4 = params['filters_4']
         self.filters_5 = params['filters_5']
         self.activation = params['activation']
         self.dropout_ratio = params['dropout_ratio']
@@ -145,8 +145,8 @@ class ResNetHyper(DLModels):
         elif self.pooling_1 == 'max':
             x = layers.MaxPooling2D(3, strides=2, name='pool1_pool')(x)
         x = stack2(x, self.filters_2, 3, name='conv2', activation_methods=self.activation)
-        x = stack2(x, self.filter_3, conv3_depth, name='conv3', activation_methods=self.activation)
-        x = stack2(x, self.filter_4, conv4_depth, name='conv4', activation_methods=self.activation)
+        x = stack2(x, self.filters_3, conv3_depth, name='conv3', activation_methods=self.activation)
+        x = stack2(x, self.filters_4, conv4_depth, name='conv4', activation_methods=self.activation)
         x = stack2(x, self.filters_5, 3, stride1=1, name='conv5', activation_methods=self.activation)
         if preact is True:
             x = layers.BatchNormalization(axis=bn_axis, epsilon=1.001e-5, name='post_bn')(x)
