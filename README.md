@@ -53,3 +53,20 @@ Please refer to `tuner_example.ipynb` for details. The search classes are implem
 Generally speaking, one can first init the base model `keras_tuner_hyper.MyHyperModel`, then do the search `tuner.search`, and get the best topK hyper-parameters useing `all_hyper_parameter_list = tuner.get_best_hyperparameters(num_trials=TRIALS)`.
 
 We do not record the trained model when doing the search, becauase Keras-tuner suggests to re-train the model from the given hyperparameters. In default the model saving in Keras-tuner is not implemented. (Refer to [base_tuner](https://github.com/keras-team/keras-tuner/blob/f1a475eb51ce4692a249906ec1a54e368fc7ae2b/keras_tuner/engine/base_tuner.py#L207))
+
+## TOSEM Data
+
+Please download the data at: https://drive.google.com/file/d/1t_Pf9jM41F7hNNJiXz-sAxEt4fkAhDCK/view?usp=sharing and unfold it in the root directory.
+
+We have four folders for each of the model+data experiment. Under each directory, `minst_cnn_D1_fix_filters_metrics` means when applying the search, the `filters` hyperparameter is fixed. All the files here are kept in JSON format recording the corresponding results when applying Keras search.
+
+"""
+Dict:
+    hyperparameters: the hyperparameters keras-tuner gives.
+    original_model: the performance of the original model (accuracy, latency, flop, etc.)
+    pruned_model: original model after pruned (Not useful for now).
+    quantized_model: original model after quantized (Not useful for now).
+    pruned_quantized_model: original model after quantized and pruned (Not useful for now).
+"""
+
+Under notebook `TOSEM_data_analysis.ipynb`, we have examples to load the data. 
